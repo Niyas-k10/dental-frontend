@@ -6,10 +6,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 function AppWrapper() {
-  const isLoggedIn = localStorage.getItem("token");
+  const isLoggedIn = !!localStorage.getItem("token");
   const location = useLocation();
 
-  // hide navbar on login/register
   const hideNavbar =
     location.pathname === "/login" || location.pathname === "/register";
 
@@ -18,21 +17,21 @@ function AppWrapper() {
       {isLoggedIn && !hideNavbar && <Navbar />}
 
       <Routes>
-        {/* default route */}
         <Route
           path="/"
           element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
         />
 
-        {/* login/register */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* protected route */}
         <Route
           path="/doctors"
           element={isLoggedIn ? <Doctors /> : <Navigate to="/login" />}
         />
+
+        {/* 🔥 THIS FIXES 404 */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
