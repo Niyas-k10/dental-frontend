@@ -28,7 +28,7 @@ function Register() {
 
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/users/register/",
+        "https://dental-backend-ch8e.onrender.com/api/users/register/",
         form
       );
 
