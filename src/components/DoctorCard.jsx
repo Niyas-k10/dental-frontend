@@ -7,7 +7,7 @@ function DoctorCard({ doctor }) {
     <div className="card">
       <div className="card-image">
         <img
-          src={`http://127.0.0.1:8000${doctor.image}`}
+          src={`https://dental-backend-ch8e.onrender.com${doctor.image}`}
           alt={doctor.name}
         />
       </div>

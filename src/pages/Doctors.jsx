@@ -8,8 +8,7 @@ function Doctors() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/doctors/")
+    axios.get("https://dental-backend-ch8e.onrender.com/api/doctors/")
       .then((res) => {
         setDoctors(res.data);
         setLoading(false);
